@@ -62,14 +62,19 @@ public class Controller<setText> {
         if (memoryOperation.equals("MR")) {
             this.resultField.setText(this.memory.toString());
         } else if (memoryOperation.equals("M+")) {
-            memory = Double.parseDouble(resultField.getText());
+            if (!resultField.getText().isBlank()) {
+                memory = memory + Double.parseDouble(resultField.getText());
+            }
+        } else if (memoryOperation.equals("M-")) {
+            memory = memory - Double.parseDouble(resultField.getText());
         }
     }
 
-    public void clickedClear(ActionEvent actionEvent) {
-        this.resultField.setText("");
-        accumulator = null;
-        chosenOperation = null;
+        public void clickedClear (ActionEvent actionEvent) {
+            this.resultField.setText("");
+            accumulator = null;
+            chosenOperation = null;
 
+
+        }
     }
-}
